@@ -5,6 +5,14 @@ require('dotenv').config();
 
 const app = express(); // creation de l'application grace au framework
 
+// Passby CORS errors
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization, UserID, Email');
+    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
+    next();
+  });
+
 const dbID = process.env.DB_ID;
 const dbPW = process.env.DB_PW;
 const DB = 'mongodb+srv://'+dbID+':'+dbPW+'@cluster0.gy1tyef.mongodb.net/test';
