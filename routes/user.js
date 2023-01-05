@@ -1,14 +1,18 @@
 const express = require('express');
 const router = express.Router(); // router intégré au framework
 
+// import des middlewares
+const auth = require('../middlewares/auth');
+
 // import des controllers
 const userCtrl = require('../controllers/user');
 
 // Routes
-router.get('/users', userCtrl.getUsers);
-router.get('/users/:id', userCtrl.getUserById);
-router.post('/users', userCtrl.createUser);
-router.put('/users/:id', userCtrl.updateUser);
-router.delete('/users/:id', userCtrl.deleteUser);
+router.get('/', userCtrl.getUsers);
+router.get('/:id', userCtrl.getUserById);
+router.post('/signup', userCtrl.createUser);
+router.put('/:id', userCtrl.updateUser);
+router.delete('/:id', userCtrl.deleteUser);
+router.post('/login', [auth], userCtrl.loginUser);
 
 module.exports = router;

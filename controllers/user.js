@@ -1,5 +1,6 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
+const jwt = require('jsonwebtoken');
 
 exports.getUsers = (req, res) => {
     User.find()
@@ -61,4 +62,30 @@ exports.deleteUser = (req, res) => {
         .catch((err) => {
             res.status(400).json({message: 'NOT FOUND', error: err})
         })
+};
+
+exports.loginUser = (req, res) => {
+    console.log(req.body)
+    const email = req.body.email;
+    const password = req.body.password;
+
+    User.findOne({ email })
+        .then(user => {
+            if (user) {
+                bcrypt.compare(password, user.password, (err, result) => {
+                    if (err) {
+                        return res.status(500).json('Error: ' + err);
+                    }
+                    if (result) {
+                        const token = jwt.sign( {id: user.id, email: user.email }, 'RANDOM_TOKEN_SECRET', { expiresIn: '24h'});
+                        res.json({message: 'User connecte !', token});
+                    } else {
+                        res.status(400).json('Error: Email or password is incorrect');
+                    }
+                });
+            } else {
+                res.status(400).json('Error: Email or password is incorrect');
+            }
+        })
+        .catch(err => res.status(400).json('Error: ' + err));
 };
