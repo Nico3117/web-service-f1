@@ -13,6 +13,6 @@ router.get('/:id', userCtrl.getUserById);
 router.post('/signup', userCtrl.createUser);
 router.put('/:id', userCtrl.updateUser);
 router.delete('/:id', userCtrl.deleteUser);
-router.post('/login', [auth], userCtrl.loginUser);
+router.post('/login', userCtrl.loginUser);
 
 module.exports = router;

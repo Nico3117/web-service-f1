@@ -65,7 +65,6 @@ exports.deleteUser = (req, res) => {
 };
 
 exports.loginUser = (req, res) => {
-    console.log(req.body)
     const email = req.body.email;
     const password = req.body.password;
 
@@ -77,7 +76,7 @@ exports.loginUser = (req, res) => {
                         return res.status(500).json('Error: ' + err);
                     }
                     if (result) {
-                        const token = jwt.sign( {id: user.id, email: user.email }, 'RANDOM_TOKEN_SECRET', { expiresIn: '24h'});
+                        const token = jwt.sign( { id: user.id, email: user.email }, 'RANDOM_TOKEN_SECRET', { expiresIn: '24h'});
                         res.json({message: 'User connecte !', token});
                     } else {
                         res.status(400).json('Error: Email or password is incorrect');
