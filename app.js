@@ -27,8 +27,10 @@ app.use(bodyParser.json());
 
 // import des routes
 const userRoutes = require('./routes/user');
+const circuitRoutes = require('./routes/circuit');
 
 app.use('/api/auth', userRoutes);
+app.use('/api/circuit', circuitRoutes);
 
 // exportation pour être utilisé par d'autres fichiers
 module.exports = app;

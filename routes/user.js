@@ -1,9 +1,6 @@
 const express = require('express');
 const router = express.Router(); // router intégré au framework
 
-// import des middlewares
-const auth = require('../middlewares/auth');
-
 // import des controllers
 const userCtrl = require('../controllers/user');
 

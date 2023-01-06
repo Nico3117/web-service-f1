@@ -21,7 +21,7 @@ exports.createUser = (req, res) => {
             const password = hash;
             const name = req.body.name;
             const creationDate = Date.now();
-            const active = false;
+            const active = true;
           
             const newUser = new User({
               email,
