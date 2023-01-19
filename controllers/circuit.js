@@ -3,13 +3,17 @@ const Circuit = require('../models/circuit');
 exports.getCircuits = (req, res) => {
     Circuit.find()
         .then((circuits) => res.status(200).json(circuits))
-        .catch((err) => res.status(400).json('Error: ' + err));
+        .then(logger.info(`Récupération des circuits`))
+        .catch((err) => res.status(400).json('Error: ' + err))
+        .catch(logger.error(`Erreur getCircuits: ${err}`));
 };
 
 exports.getCircuitById = (req, res) => {
     Circuit.findById(req.params.id)
         .then((circuit) => res.status(200).json(circuit))
-        .catch((err) => res.status(400).json('Error: ' + err));
+        .then(logger.info(`Récupération du circuit: ${circuit.id}`))
+        .catch((err) => res.status(400).json('Error: ' + err))
+        .catch(logger.error(`Erreur getCircuitById: ${err}`));
 };
 
 exports.createCircuit = (req, res) => {
@@ -29,7 +33,9 @@ exports.createCircuit = (req, res) => {
     
     newCircuit.save()
         .then((saved) => res.status(200).json(saved))
-        .catch((err) => res.status(500).json('Error: ' + err));
+        .then(logger.info(`Création circuit: ${circuit.id}`))
+        .catch((err) => res.status(500).json('Error: ' + err))
+        .catch(logger.error(`Erreur createCircuit: ${err}`));
 };
 
 exports.updateCircuit = (req, res) => {
@@ -41,7 +47,9 @@ exports.updateCircuit = (req, res) => {
                 .then((result) => res.status(200).json(result))
                 .catch((err) => res.status(500).json('Error: ' + err))
         })
+        .then(logger.info(`Création circuit: ${circuit.id}`))
         .catch((err) => res.status(404).json('Error: ' + err))
+        .catch(logger.error(`Erreur updateCircuit: ${err}`));
 };
 
 exports.deleteCircuit = (req, res) => {

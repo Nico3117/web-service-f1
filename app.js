@@ -1,6 +1,7 @@
 const express = require('express'); // framework
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const logger = require("./logger");
 require('dotenv').config();
 
 const app = express(); // creation de l'application grace au framework
@@ -18,9 +19,11 @@ const dbPW = process.env.DB_PW;
 const DB = 'mongodb+srv://'+dbID+':'+dbPW+'@cluster0.gy1tyef.mongodb.net/test';
 
 mongoose.connect(DB, { useNewUrlParser: true, useUnifiedTopology: true })
-    .then(() => console.log('Connected to MongoDB'))
+    .then(() => [console.log('Connected to MongoDB'),  
+    logger.info("Connecté à MongoDB")])
     .catch((err) => {
         console.log('MongoDB ERROR CONNECT', err)
+        logger.error("Erreur de connexion à MongoDB");
     });
 
 app.use(bodyParser.json());

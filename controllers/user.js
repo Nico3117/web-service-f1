@@ -1,17 +1,20 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');
+const logger = require("../logger");
 
 exports.getUsers = (req, res) => {
     User.find()
         .then((users) => res.status(200).json(users))
-        .catch((err) => res.status(400).json('Error: ' + err));
+        .catch((err) => res.status(400).json('Error: ' + err))
+        .catch((err) => logger.error(`Error getUsers : ${err}`));
 };
   
 exports.getUserById = (req, res) => {
     User.findById(req.params.id)
         .then((user) => res.status(200).json(user))
-        .catch((err) => res.status(400).json('Error: ' + err));
+        .catch((err) => res.status(400).json('Error: ' + err))
+        .catch((err) => logger.error(`Error getUsersById : ${err}`));
 };
 
 exports.createUser = (req, res) => {
@@ -30,10 +33,12 @@ exports.createUser = (req, res) => {
               creationDate,
               active
             });
-          
+            
             newUser.save()
-              .then((saved) => res.status(200).json(saved))
-              .catch((err) => res.status(500).json('Error: ' + err));
+                .then((saved) => res.status(200).json(saved))
+                .then(() => logger.info(`Create a new user: ${email}`))
+                .catch((err) => res.status(500).json('Error: ' + err))
+                .then((err) => logger.error(`Error account creation : ${err}`));
         })
         .catch((err) => res.status(500).json('Error: ' + err));
 };
@@ -78,8 +83,10 @@ exports.loginUser = (req, res) => {
                     if (result) {
                         const token = jwt.sign( { id: user.id, email: user.email }, 'RANDOM_TOKEN_SECRET', { expiresIn: '24h'});
                         res.json({message: 'User connecte !', token});
+                        logger.info(`User logged: ${user.email}`);
                     } else {
-                        res.status(400).json('Error: Email or password is incorrect');
+                        res.status(400).json('Error: Email or password is incorrect')
+                        logger.error(`Error Login user`);
                     }
                 });
             } else {
