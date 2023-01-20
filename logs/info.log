@@ -1,0 +1,33 @@
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"test "}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"User logged:"}
+{"level":"info","message":"User logged:"}
+{"level":"info","message":"User logged:"}
+{"level":"info","message":"User logged:"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"$__":{"activePaths":{"paths":{"__v":"init","_id":"init","active":"init","creationDate":"init","email":"init","name":"init","password":"init"},"states":{"init":{"__v":true,"_id":true,"active":true,"creationDate":true,"email":true,"name":true,"password":true},"require":{}}},"skipId":true},"$isNew":false,"_doc":{"__v":0,"_id":"63c955c73d985de4a072667a","active":true,"creationDate":"2023-01-19T14:37:59.002Z","email":"benbordelet@gmail.com","name":"ben","password":"$2b$10$Z0e0FeTNVEiXVOxO8lFswOTY3TPxzaBzkX7CAJB8Ol/n37kBLXjmO"},"level":"info","message":"User logged123:"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"User logged:"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"User logged:"}
+{"level":"info","message":"User logged:"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"User logged: benbordelet@gmail.com"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"User logged: benbordelet@gmail.com"}
+{"level":"info","message":"Create a new user: test@test.com"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"User logged: benbordelet@gmail.com"}
