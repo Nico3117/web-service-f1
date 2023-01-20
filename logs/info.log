@@ -31,3 +31,31 @@
 {"level":"info","message":"Server Listening On Port 3000"}
 {"level":"info","message":"Connecté à MongoDB"}
 {"level":"info","message":"User logged: benbordelet@gmail.com"}
+{"level":"info","message":"Server Listening On Port 3000"}
+{"level":"info","message":"Connecté à MongoDB"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Création circuit:"}
+{"level":"error","message":"Erreur createCircuit:"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Création circuit"}
+{"level":"error","message":"Erreur updateCircuit:"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Création circuit"}
+{"level":"error","message":"Erreur updateCircuit:"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
+{"level":"info","message":"Récupération des circuits"}
+{"level":"error","message":"Erreur getCircuits"}
